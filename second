@@ -1,0 +1,223 @@
+
+//commands for 1st question
+===================================================================================================================
+git clone https://github.com/djgit17/ExternalLab2023.git
+ ls
+cd ExternalLab2023/
+git branch branch1
+git checkout branch1
+cd content/
+ls
+nano home.phtml
+git add .
+   git commit -m "change in branch1"
+  git diff branch
+  git diff master
+  git checkout branch
+  git checkout maste
+  git merge branch
+  git merge branch1
+  ls
+  touch home.phtml
+  nano home.phtml
+  git add .
+  git commit -m "updated the 1"
+  ls
+  cd ..
+  ls
+  nano Dockerfile
+  git add .
+  git commit -m "docker updated"
+  git branch branch2
+  git checkout branch2
+  ls
+  nano Dockerfile
+  git add .
+  git commit -m "updated docker file through b2"
+  git checkout master
+  ls
+  git merge branch2
+  ls
+  nano Dockerfile
+
+
+
+
+yaro tegdidhu?
+
+
+lo access token admele en madbeku
+=======================================
+Dockerfile 1 ques:
+
+#INSTALL ubuntu image
+FROM ubuntu:latest
+#get the updates and install apache2 php libapache2-mod-php
+RUN apt-get update
+RUN apt-get install apache2 php libapache2-mod-php -y
+#copy all file from current directory to /var/www/html
+ADD . /var/www/html
+#Expose port 80
+EXPOSE 80
+#Restart apache2
+ENTRYPOINT apachectl -D FOREGROUND
+============================================
+nav: 2nd heng madadu
+sha :lee heloro second heng madodu
+Ash:gotila loo
+==================================
+Username for 'https://github.com': gauravn2217@gmail.com
+Password for 'https://gauravn2217@gmail.com@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/gauravvn/ExternalLab2023.git/'
+
+
+entha error banthu??
+git push -u origin main
+remote: Not Found
+fatal: repository 'https://github.com/gauravvn/https://github.com/gauravvn/ExternalLab2023.git/' not found
+
+repository create maduu
+
+
+dockerfile
+
+FROM tomcat:9.0.82-jdk8-coretto-al2
+COPY ./target/ExternalLab2023.war /usr/local/ExternalLab2023
+
+ 
+==================GIT COMMANDS===============
+git init
+git clone https://github.com/djgit17/MyMavenApp.git
+cd MyMAvenApp
+git branch branch1
+git checkout branch1
+cd webapp
+vi index.jsp
+// change the name
+git add .
+git commit -m " changed the name in index.jsp"
+git status
+git checkout masterhenge
+git merge branch1
+touch Dockerfile 
+nano Dockerfile // write the content
+add
+commit
+git branch -M main
+git remote rm origin
+git remote add origin "url" // url of repo
+git push -u origin main
+****************************************
+https://tomcat.apache.org/download-90.cgi
+=============================================================================================
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf = tomcat-users.xml
+  <role rolename="manager-script"/>
+  <role rolename="manager-gui"/>
+  <user username="msis" password="sois@123" roles="manager-script,manager-gui"/>
+================================================================================================
+  C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\manager\META-INF = context.xml
+  <!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+================================================================================================
+1. tools->maven
+2. credentials->tomcat
+3. plugins ->deploy to container
+4. newitem->freestyle->git->url of pushed->add buildstep->invoke-top-level-maventarget->select maven->clean package->
+5. postbuild-> deploy war/ear->**/*.war->context path->MyMavenApp->add container->tomcat credecials->tomcat url->
+6. save build
+7. configer->branches to build ->main
+8. output->tomcaturl/MyMavenApp 
+==============================================================================================================
+dockerize java application
+new item
+git repo
+build step = invoke top level
+Select maven, Goals = clean package
+Execute shell command :
+docker build -t gaurav/mymavenapp:version .
+docker ps -aq | xargs docker stop
+docker rm -f dockerserver
+docker run -d --name dockerserver -p 8081:8080 gaurav/mymavenapp:version
+build
+run in website
+
+sudo service docker start
+cd \var\run
+sudo chmod 777 docker.sock
+cd
+sudo service docker restart
+===============================================================================================================
+docker-compose commands
+
+git clone <url of FullStackApp1>
+cd FullStackApp1
+vi docker-compose.yml
+sudo docker-compose up
+
+OUTPUT= IPAdress:80
+===========================================================================================================
+docker-compose.yml file
+
+version: '3'
+services:
+  www:
+
+    build:
+      context: .
+      dockerfile: Dockerfile_Web_App
+    container_name: www
+    ports:
+      - 3000:80
+      - 443:443 # for future ssl traffic
+  db:
+    image: mysql:latest
+    container_name: db
+    environment:
+      - MYSQL_DATABASE=php_docker
+      - MYSQL_USER=php_docker
+      - MYSQL_PASSWORD=password # this should live in a env var
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to True
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d" # this is how we persist a sql db even when container stops
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+=======================================================================================================
+docker file->>
+FROM php:apache
+RUN apt-get update -y
+RUN docker-php-ext-install mysqli
+COPY . /var/www/html/
+EXPOSE 80
+====================================================================================================
+
+
+```
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements.txt file to the container
+COPY requirements.txt .
+
+# Install the required dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the web app code to the container
+COPY . .
+
+# Expose the port on which the web app will run
+EXPOSE 8000
+
+# Set the command to run the web app
+CMD ["python", "app.py"]
+======================================================================================================
+https://pastebin.com/raw/kiXMQWyj
